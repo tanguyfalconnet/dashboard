@@ -303,6 +303,7 @@ export abstract class ResourceListBase<T extends ResourceList, R extends Resourc
         filterByQuery += `name,${query}`;
       }
     }
+    filterByQuery += 'name,' + this.namespaceService_.current();
 
     if (filterByQuery) {
       return result.set('filterBy', filterByQuery);

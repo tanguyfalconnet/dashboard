@@ -17,18 +17,26 @@ limitations under the License.
 <kd-object-meta [initialized]="isInitialized"
                 [objectMeta]="configMap?.objectMeta"></kd-object-meta>
 
-<kd-card [initialized]="isInitialized"
-         role="table">
+<kd-card [initialized]="isInitialized">
   <div title
        i18n>Data</div>
   <div content>
-    <kd-text-input *ngIf="configMap?.data"
-                   [text]="getConfigMapData(configMap)"
-                   [readOnly]="true"
-                   [border]="false"
-                   mode="json"></kd-text-input>
+     <kd-hidden-property *ngFor="let key of getDataKeys()"
+     [enableEdit]="true"
+     #property>
+     <div key>{{ key }}</div>
+     <div whenVisible
+          class="kd-code-block">{{ configMap?.data[key] }}</div>
+     <div whenEdit>
+     <kd-configmap-detail-edit [configMap]="configMap"
+                              [key]="key"
+                              [editing]="property.mode == HiddenPropertyMode.Edit"
+                              (onClose)="property.mode = HiddenPropertyMode.Hidden">
+     </kd-configmap-detail-edit>
+     </div>
+     <div whenHidden>{{ configMap?.data[key].length }} bytes</div>
+     </kd-hidden-property>
     <div *ngIf="!configMap?.data"
-         class="kd-card-padding"
          i18n>There is no data to display.</div>
   </div>
 </kd-card>

@@ -18,8 +18,6 @@ import {Breadcrumb, IMessage} from '@api/root.ui';
 import {distinctUntilChanged, filter} from 'rxjs/operators';
 import {MESSAGES_DI_TOKEN} from '../../../index.messages';
 import {POD_DETAIL_ROUTE} from '../../../resource/workloads/pod/routing';
-import {REPLICASET_DETAIL_ROUTE} from '../../../resource/workloads/replicaset/routing';
-import {REPLICATIONCONTROLLER_DETAIL_ROUTE} from '../../../resource/workloads/replicationcontroller/routing';
 import {SEARCH_QUERY_STATE_PARAM} from '../../params/params';
 
 export const LOGS_PARENT_PLACEHOLDER = '___LOGS_PARENT_PLACEHOLDER___';
@@ -117,10 +115,6 @@ export class BreadcrumbsComponent implements OnInit {
     const resourceType = params['resourceType'];
     if (resourceType === 'pod') {
       return POD_DETAIL_ROUTE;
-    } else if (resourceType === 'replicationcontroller') {
-      return REPLICATIONCONTROLLER_DETAIL_ROUTE;
-    } else if (resourceType === 'replicaset') {
-      return REPLICASET_DETAIL_ROUTE;
     }
     return undefined;
   }

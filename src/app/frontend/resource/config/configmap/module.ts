@@ -18,11 +18,12 @@ import {ComponentsModule} from '@common/components/module';
 import {SharedModule} from '../../../shared.module';
 
 import {ConfigMapDetailComponent} from './detail/component';
+import {ConfigMapDetailEditComponent} from './detail/edit/component';
 import {ConfigMapListComponent} from './list/component';
 import {ConfigMapRoutingModule} from './routing';
 
 @NgModule({
   imports: [SharedModule, ComponentsModule, ConfigMapRoutingModule],
-  declarations: [ConfigMapListComponent, ConfigMapDetailComponent],
+  declarations: [ConfigMapListComponent, ConfigMapDetailComponent, ConfigMapDetailEditComponent],
 })
 export class ConfigMapModule {}

@@ -16,9 +16,6 @@ limitations under the License.
 
 <div fxLayout="row"
      *ngIf="isInitialized && isVisible">
-  <kd-actionbar-detail-logs [resourceMeta]="resourceMeta"></kd-actionbar-detail-logs>
-
-  <kd-actionbar-detail-exec [objectMeta]="resourceMeta?.objectMeta"></kd-actionbar-detail-exec>
 
   <kd-actionbar-detail-actions [objectMeta]="resourceMeta?.objectMeta"
                                [typeMeta]="resourceMeta?.typeMeta"

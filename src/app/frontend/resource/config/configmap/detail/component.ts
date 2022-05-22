@@ -17,6 +17,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ConfigMapDetail} from '@api/root.api';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {HiddenPropertyMode} from '@common/components/hiddenproperty/component';
 
 import {ActionbarService, ResourceMeta} from '@common/services/global/actionbar';
 import {NotificationsService} from '@common/services/global/notifications';
@@ -33,6 +34,7 @@ export class ConfigMapDetailComponent implements OnInit, OnDestroy {
 
   configMap: ConfigMapDetail;
   isInitialized = false;
+  HiddenPropertyMode = HiddenPropertyMode;
 
   constructor(
     private readonly configMap_: NamespacedResourceService<ConfigMapDetail>,
@@ -68,5 +70,9 @@ export class ConfigMapDetailComponent implements OnInit, OnDestroy {
     }
 
     return JSON.stringify(cm.data);
+  }
+
+  getDataKeys(): string[] {
+    return this.configMap && this.configMap.data ? Object.keys(this.configMap.data) : [];
   }
 }

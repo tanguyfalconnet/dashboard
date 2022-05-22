@@ -12,11 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {NgModule} from '@angular/core';
-import {AuthGuard} from './auth';
-import {LoginGuard} from './login';
+@use '../../../../../variables' as *;
+@use '../../../../../mixins' as *;
 
-@NgModule({
-  providers: [AuthGuard, LoginGuard],
-})
-export class GuardsModule {}
+.kd-configmap-detail-text {
+  width: 100%;
+
+  .mat-input-element {
+    font-family: $font-family-monospace;
+    font-size: $body-font-size-base;
+  }
+}
+
+.kd-configmap-detail-actions {
+  min-height: $baseline-grid * 6.5;
+  padding: $baseline-grid 0;
+}
