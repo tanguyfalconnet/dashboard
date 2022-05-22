@@ -380,7 +380,7 @@ router-outlet::after {
   font-family: Roboto, sans-serif;
 }
 
-.kd-secret-detail-text {
+.kd-secret-detail-text .kd-configmap-detail-text {
   .mat-form-field-wrapper {
     padding-bottom: $baseline-grid;
   }
